@@ -1,0 +1,73 @@
+.main-container{
+    align-self: center;
+    margin: 10px 0px 10px 0px;
+    border-radius: 10px;
+    height: 125px;
+    max-width: 750px;
+    min-width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 5px 5px 5px;
+}
+
+.forecast-day-token{
+    flex: 1;
+    min-width: 81px;
+    height: 100%;
+    margin: 0px 5px 0px;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: rgb(20, 12, 43);
+    background-color: rgb(210, 225, 235);
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+.forecast-day-background{
+    height: 50px;
+    width: 50px;
+}
+
+.forecast-day-token:hover{
+    cursor: pointer;
+    user-select: none;
+}
+
+.forecast-day {
+    margin-bottom: 5px;
+}
+.forecast-day-temperature{
+    font-weight: 600;
+    font-size: 20px;
+    margin: 5px 5px 0 0;
+}
+.forecast-day-unit{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.glow{
+    animation: glow 5s infinite;
+}
+
+
+@keyframes glow {
+    0% {
+        background-color: rgba(210, 225, 235, 1);
+    }
+    
+    50% {
+        background-color: rgb(162, 197, 221);
+    }
+    100% {
+        background-color: rgba(210, 225, 235, 1);
+    }
+}

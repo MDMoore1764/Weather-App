@@ -1,0 +1,49 @@
+.submitButton{
+    height: 25px;
+    width: 100px;
+}
+
+.input-group-prepend{
+    width: 100px;
+    text-align: center;
+}
+.input-group-text{
+    flex: 1;
+}
+
+.location-input-group{
+    display: flex;
+    flex-direction: column;
+    
+}
+.inputContainer{
+   width: 100%;
+}
+.location-input-body{
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
+
+.button-container{
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.btn{
+    width: 150px;
+}
+
+.reset-btn{
+    background-image: linear-gradient(to right,#ec008e,#F05A28);
+}
+
+.search-btn{
+    background-image: linear-gradient(to right,#2556A3,#2393D4);
+}
+.btn{
+    font-size: 17px;
+    color: white;
+    font-weight: 500;
+}

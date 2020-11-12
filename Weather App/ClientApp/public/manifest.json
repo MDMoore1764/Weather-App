@@ -1,6 +1,6 @@
 {
-  "short_name": "Weather_App",
-  "name": "Weather_App",
+  "short_name": "WeatherUI",
+  "name": "WeatherUI",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,0 +1,62 @@
+#MainBody {
+  margin: 0px;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  text-align: center;
+}
+
+.night-mode-box {
+  position: absolute;
+  left: 10px;
+
+
+}
+
+.night-mode-button {
+  height: 15px;
+  width: 30px;
+}
+
+.night-mode-text {
+  margin-left: 10px;
+}
+
+@media (max-width: 1050px) {
+  .night-mode-text {
+    display: none;
+  }
+
+}
+
+@media (max-width: 765px) {
+  .night-mode-button {
+    display: none;
+  }
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
