@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Weather_App.MVC.Core;
+using Weather_App.MVC.Services;
 
 namespace Weather_App
 {
@@ -20,7 +22,6 @@ namespace Weather_App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
@@ -28,6 +29,11 @@ namespace Weather_App
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+
+            services.AddSingleton<IApiClient, ApiClient>();
+            services.AddScoped<IWeatherService, WeatherService>();
+            services.AddScoped<IGeoCodeService, GeoCodeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

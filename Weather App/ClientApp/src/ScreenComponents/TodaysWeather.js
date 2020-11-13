@@ -49,121 +49,133 @@ const TodaysWeather = (props) => {
         );
     }
     const Display = () => {
-        if (currentForecast === null || currentForecast === undefined) return null;
-        let windSpeedValue = currentForecast.Forecast.properties.periods[0].windSpeed.substring(0, 2).trim();
-        //let windSpeedUnit = currentForecast.Forecast.properties.periods[0].windSpeed.substring(2).trim();
-
-        let windDirection = { North: "North", NorthEast: "North-East", East: "East", SouthEast: "South-East", South: "South", SouthWest: "South-West", West: "West", NorthWest: "North-West" };
-
-        const GetWindDirection = (abbreviation) => {
-            let abb = abbreviation.toLowerCase();
-            switch (abb) {
-                case ("n"): {
-                    return windDirection.North;
-                }
-                case ("ne"): {
-                    return windDirection.NorthEast
-                }
-                case ("e"): {
-                    return windDirection.East
-                }
-                case ("se"): {
-                    return windDirection.SouthEast
-                }
-                case ("s"): {
-                    return windDirection.South
-                }
-                case ("sw"): {
-                    return windDirection.SouthWest
-                }
-                case ("w"): {
-                    return windDirection.West
-                }
-                case ("nw"): {
-                    return windDirection.NorthWest
-                }
-                default: {
-                    return abbreviation;
-                }
-            }
+        if (currentForecast == null) {
+            return null;
         }
-
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-
-        const MinConvert = (num) => {
-            if (num < 10) {
-                return "0" + num;
-            }
-            else {
-                return num;
-            }
-        }
-        let am = true;
-        const HourConvert = (hour) => {
-            //0 = midnight, 23 == 11 pm
-            if (hour > 11) {
-                am = false;
-            }
-            else {
-                am = true;
-            }
-            if (hour > 12) {
-                return hour - 12;
-            }
-            else {
-                return hour;
-            }
-        }
+        else {
 
 
-        let now = new Date();
-        return (
-            <div className="variable-body">
-                <div className="todays-weather-internal">
-                    <div className="refresh-button-container" onClick={props.refresh} >
-                        <FontAwesomeIcon icon={faSync} className="fa-lg refresh-button" alt="refresh button" />
-                        <p className="refresh-text">Updated {monthNames[now.getMonth()]}, {now.getDate()} at {HourConvert(now.getHours())}:{MinConvert(now.getMinutes())} {am ? "am" : "pm"}</p>
-                    </div>
-                    <div className="header-container">
-                        <p className="name">{currentForecast.Forecast.properties.periods[props.weatherPeriod].name}</p>
-                        <p className="location">{currentForecast.properties.relativeLocation.properties.city}, {currentForecast.properties.relativeLocation.properties.state}</p>
-                    </div>
+            let windSpeedValue = currentForecast.Forecast.properties.periods[0].windSpeed.substring(0, 2).trim();
+            //let windSpeedUnit = currentForecast.Forecast.properties.periods[0].windSpeed.substring(2).trim();
 
-                    <div className="image-context-container">
-                        <div className="weather-temp-container">
-                            <p className="shortForecast title" >{currentForecast.Forecast.properties.periods[props.weatherPeriod].shortForecast}</p>
-                            <div className="weather-container">
-                                <div className="image-container">
-                                    <img className="icon" src={currentForecast.Forecast.properties.periods[props.weatherPeriod].icon} alt="icon" />
-                                </div>
-                                <div className="temperature-container">
-                                    <p className="temperature">{currentForecast.Forecast.properties.periods[props.weatherPeriod].temperature}</p>
-                                    <p className="unit temperatureUnit">{TempUnits[currentForecast.Forecast.properties.periods[props.weatherPeriod].temperatureUnit]}</p>
+            let windDirection = { North: "North", NorthEast: "North-East", East: "East", SouthEast: "South-East", South: "South", SouthWest: "South-West", West: "West", NorthWest: "North-West" };
+
+            const GetWindDirection = (abbreviation) => {
+                let abb = abbreviation.toLowerCase();
+                switch (abb) {
+                    case ("n"): {
+                        return windDirection.North;
+                    }
+                    case ("ne"): {
+                        return windDirection.NorthEast
+                    }
+                    case ("e"): {
+                        return windDirection.East
+                    }
+                    case ("se"): {
+                        return windDirection.SouthEast
+                    }
+                    case ("s"): {
+                        return windDirection.South
+                    }
+                    case ("sw"): {
+                        return windDirection.SouthWest
+                    }
+                    case ("w"): {
+                        return windDirection.West
+                    }
+                    case ("nw"): {
+                        return windDirection.NorthWest
+                    }
+                    default: {
+                        return abbreviation;
+                    }
+                }
+            }
+
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            const MinConvert = (num) => {
+                if (num < 10) {
+                    return "0" + num;
+                }
+                else {
+                    return num;
+                }
+            }
+            let am = true;
+            const HourConvert = (hour) => {
+                //0 = midnight, 23 == 11 pm
+                if (hour > 11) {
+                    am = false;
+                }
+                else {
+                    am = true;
+                }
+                if (hour > 12) {
+                    return hour - 12;
+                }
+                else {
+                    return hour;
+                }
+            }
+
+            const GetShorterForecast = (fc) => {
+                //search for and remove unimportant words
+                fc = fc.replaceAll("Showers", "");
+
+                return fc;
+            }
+
+            let now = new Date();
+            return (
+                <div className="variable-body">
+                    <div className="todays-weather-internal">
+                        <div className="refresh-button-container" onClick={props.refresh} >
+                            <FontAwesomeIcon icon={faSync} className="fa-lg refresh-button" alt="refresh button" />
+                            <p className="refresh-text">Updated {monthNames[now.getMonth()]}, {now.getDate()} at {HourConvert(now.getHours())}:{MinConvert(now.getMinutes())} {am ? "am" : "pm"}</p>
+                        </div>
+                        <div className="header-container">
+                            <p className="name">{currentForecast.Forecast.properties.periods[props.weatherPeriod].name}</p>
+                            <p className="location">{currentForecast.properties.relativeLocation.properties.city}, {currentForecast.properties.relativeLocation.properties.state}</p>
+                        </div>
+
+                        <div className="image-context-container">
+                            <div className="weather-temp-container">
+                                <p className="shortForecast title" >{GetShorterForecast(currentForecast.Forecast.properties.periods[props.weatherPeriod].shortForecast)}</p>
+                                <div className="weather-container">
+                                    <div className="image-container">
+                                        <img className="icon" src={currentForecast.Forecast.properties.periods[props.weatherPeriod].icon} alt="icon" />
+                                    </div>
+                                    <div className="temperature-container">
+                                        <p className="temperature">{currentForecast.Forecast.properties.periods[props.weatherPeriod].temperature}</p>
+                                        <p className="unit temperatureUnit">{TempUnits[currentForecast.Forecast.properties.periods[props.weatherPeriod].temperatureUnit]}</p>
+                                    </div>
                                 </div>
                             </div>
+                            <div className="spacing-container"></div>
+
+
+                            <div className="wind-container">
+                                <p className="windSpeedTitle title">{GetWindDirection(currentForecast.Forecast.properties.periods[props.weatherPeriod].windDirection)} Winds<span className="windDirection"></span></p>
+                                <p className="windSpeed"> <span className="windSpeedValue">{windSpeedValue}</span>
+                                    <span className="unit">mph</span>
+                                </p>
+                            </div>
+
                         </div>
-                        <div className="spacing-container"></div>
-
-
-                        <div className="wind-container">
-                            <p className="windSpeedTitle title">{GetWindDirection(currentForecast.Forecast.properties.periods[props.weatherPeriod].windDirection)} Winds<span className="windDirection"></span></p>
-                            <p className="windSpeed"> <span className="windSpeedValue">{windSpeedValue}</span>
-                                <span className="unit">mph</span>
-                            </p>
+                        <div className="detailedForecast">
+                            <p className="name">Details</p>
+                            <p className="details"> {currentForecast.Forecast.properties.periods[props.weatherPeriod].detailedForecast}</p>
                         </div>
 
                     </div>
-                    <div className="detailedForecast">
-                        <p className="name">Details</p>
-                        <p className="details"> {currentForecast.Forecast.properties.periods[props.weatherPeriod].detailedForecast}</p>
-                    </div>
-
                 </div>
-            </div>
 
-        );
+            );
+        }
     }
 
 

@@ -3,6 +3,7 @@
     margin: 10px 0px 10px 0px;
     border-radius: 10px;
     height: 125px;
+    min-height: 125px;
     max-width: 750px;
     min-width: 500px;
     display: flex;

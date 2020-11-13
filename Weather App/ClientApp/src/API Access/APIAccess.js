@@ -1,9 +1,7 @@
 export const GetForecastData = async (Lat, Long, setLoadFailed) => {
     const data = await fetch(`forecast?latitude=${Lat}&longitude=${Long}`, { mode: 'cors' }).then(res => res.json()).catch(() => setLoadFailed(true));
-
     return data;
 }
-
 
 export const GetCoordinateData = async (address, setLoadFailed) => {
 

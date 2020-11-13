@@ -1,6 +1,6 @@
 import "../StyleComponents/SevenDayWeather.css";
 import Sunny from "../Resources/Images/CardIcons/sunIcon.png";
-import Cloudy from "../Resources/Images/CardIcons/cloudyIcon.jpg";
+import Cloudy from "../Resources/Images/CardIcons/cloudIcon.svg";
 import Rainy from "../Resources/Images/CardIcons/rainicon.png";
 import Hail from "../Resources/Images/CardIcons/hailingIcon.png";
 import PartlyCloudy from "../Resources/Images/CardIcons/Partly Cloudy.png";
@@ -65,7 +65,7 @@ const GetIconFromShortCast = (shortCast) => {
     else if (shortCast.includes("rain")) {
         return Rainy;
     }
-    else if (shortCast.includes("partly cloudy") || shortCast.includes("partly sunny") ) {
+    else if (shortCast.includes("partly cloudy") || shortCast.includes("partly sunny")) {
         return PartlyCloudy;
     }
     else if (shortCast.includes("cloud")) {
@@ -77,8 +77,6 @@ const GetIconFromShortCast = (shortCast) => {
     else {
         return Sunny;
     }
-
-
 }
 
 const SevenDayWeather = (props) => {
@@ -89,10 +87,7 @@ const SevenDayWeather = (props) => {
             element.classList.remove("glow");
         });
         document.querySelector(`.day-${period}`).classList.add("glow");
-
-
     }
-
 
     const RenderDays = () => {
         if (props.forecast === null || props.forecast === undefined) {
@@ -130,15 +125,11 @@ const SevenDayWeather = (props) => {
                             <p ><span className="forecast-day-temperature">{props.forecast.Forecast.properties.periods[temp].temperature}</span><span className="forecast-day-unit">{TempUnits[props.forecast.Forecast.properties.periods[temp].temperatureUnit]}</span></p>
                         </div>
                     );
-
                 }
-
             }
             count++;
             return null;
-        }
-
-        );
+        });
 
         return days;
     }
@@ -149,9 +140,7 @@ const SevenDayWeather = (props) => {
 
     return (
         <div className="main-container container d-flex" style={style}>
-
             {RenderDays()}
-
         </div>
     );
 }
