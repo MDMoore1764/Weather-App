@@ -75,8 +75,6 @@ const App = () => {
     );
 }
 
-
-
 const AddressReducer = (state, action) => {
     switch (action.param) {
         case 'Street':

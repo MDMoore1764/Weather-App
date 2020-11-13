@@ -8,13 +8,6 @@ namespace Weather_App.MVC.Services
     public class WeatherService : IWeatherService
     {
         private IApiClient _apiClient;
-
-        //public WeatherAPI(double latitude, double longitude)
-        //{
-        //    api = new APIAgent();
-        //    this.coordinates = new Coordinates(latitude, longitude);
-        //}
-
         public WeatherService(IApiClient apiClient)
         {
             _apiClient = apiClient;
