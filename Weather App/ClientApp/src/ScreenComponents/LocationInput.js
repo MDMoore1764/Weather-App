@@ -1,11 +1,12 @@
 import React from 'react'
 import '../StyleComponents/LocationInput.css'
-import {GetCoordinateData} from "../API Access/APIAccess";
+import { GetCoordinateData } from "../API Access/APIAccess"
+import { States } from "../Resources/DataConstants.js"
 
 const LocationInput = (props) => {
 
     const RenderStateOptions = () => {
-        var optionList = props.States.map((element) => {
+        var optionList = States.map((element) => {
             return <option key={element} className="dropdown-item">{element}</option>;
         });
         return (
@@ -20,22 +21,20 @@ const LocationInput = (props) => {
     }
 
     let ResetForm = () =>{
-        props.addressDispatch({param: 'All', Street: "", City: "", State: "", Zip: ""});
+        props.addressDispatch({ param: 'All', Street: "", City: "", State: "", Zip: "" });
+        
     }
 
     const stylesNoBack = {
-        //backgroundColor: props.isDay ? "rgb(232, 237, 255)" : "rgb(20, 12, 43)",
         color: props.isDay ? "rgb(20, 12, 43)" : "rgb(245, 245, 245)"
     };
 
     const borderStyle = {
             border: props.isDay? "2px solid rgba(0, 0, 0, 0.05)" : "1px solid rgba(255, 255, 255, 0.8)"
-
     }
 
     return (
-        <div className="d-flex-column" >
-
+        <div className="d-flex-column location-input-container" >
             <div className="location-input-body col-sm-10 col-md-8 col-lg-6 col-xl-5 container-fluid mt-2" style = {borderStyle}>
                 <p className="pt-2 pb-2 mb-0" style = {stylesNoBack}>Enter a location to see local weather</p>
 
@@ -73,9 +72,8 @@ const LocationInput = (props) => {
                     </form>
                 </div>
                 <div className="button-container d-flex">
-                    <button className="btn reset-btn" onClick={ResetForm}>Reset</button>
+                    <button className="btn reset-btn" onClick={ResetForm} type="reset">Reset</button>
                     <button className="btn search-btn" onClick={SubmitInformation}>Search!</button>
-
                 </div>
             </div>
         </div>

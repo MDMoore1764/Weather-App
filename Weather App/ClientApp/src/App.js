@@ -5,6 +5,7 @@ import TodaysWeather from './ScreenComponents/TodaysWeather';
 import SevenDayWeather from "./ScreenComponents/SevenDayWeather";
 import NightModeBox from "./ScreenComponents/NightModeBox"
 import React from 'react'
+import { States } from "./Resources/DataConstants.js"
 
 import { GetForecastData } from "./API Access/APIAccess";
 
@@ -69,8 +70,8 @@ const App = () => {
             <NightModeBox isDay={!nightMode} setNightMode={setNightMode} forecast={forecastState} />
             <TodaysWeather forecast={forecastState} locationFound={locationFound} isDay={!nightMode} weatherPeriod={weatherPeriod} refresh={() => setCoordinates(coordinateState)} loadFailed={loadFailed} />
             <SevenDayWeather isDay={!nightMode} forecast={forecastState} setPeriod={setWeatherPeriod} />
-            <LocationInput setCoordinates={setCoordinates} address={addressState} addressDispatch={addressDispatch} States={States} isDay={!nightMode} setLoadFailed={setLoadFailed} />
-            <p style={{ color: "rgb(196, 56, 0)", alignSelf: "flex-end", margin: "5px 10px 5px 0px", fontSize: "12px" }}>Designed and Developed by Michael Moore</p>
+            <LocationInput setCoordinates={setCoordinates} address={addressState} addressDispatch={addressDispatch} isDay={!nightMode} setLoadFailed={setLoadFailed} />
+            <p className="signature">Designed and Developed by Michael Moore</p>
         </div>
     );
 }
@@ -110,58 +111,6 @@ const AddressReducer = (state, action) => {
     }
 
 }
-
-const States = [
-    "Alabama",
-    "Alaska",
-    "Arizona",
-    "Arkansas",
-    "California",
-    "Colorado",
-    "Connecticut",
-    "Delaware",
-    "Florida",
-    "Georgia",
-    "Hawaii",
-    "Idaho",
-    "Illinois",
-    "Indiana",
-    "Iowa",
-    "Kansas",
-    "Kentucky",
-    "Louisiana",
-    "Maine",
-    "Maryland",
-    "Massachusetts",
-    "Michigan",
-    "Minnesota",
-    "Mississippi",
-    "Missouri",
-    "MontanaNebraska",
-    "Nevada",
-    "New Hampshire",
-    "New Jersey",
-    "New Mexico",
-    "New York",
-    "North Carolina",
-    "North Dakota",
-    "Ohio",
-    "Oklahoma",
-    "Oregon",
-    "Pennsylvania",
-    "Rhode Island",
-    "South Carolina",
-    "South Dakota",
-    "Tennessee",
-    "Texas",
-    "Utah",
-    "Vermont",
-    "Virginia",
-    "Washington",
-    "West Virginia",
-    "Wisconsin",
-    "Wyoming"
-];
 
 
 

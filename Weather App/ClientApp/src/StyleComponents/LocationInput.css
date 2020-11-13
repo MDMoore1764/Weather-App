@@ -1,11 +1,18 @@
-.submitButton{
-    height: 25px;
-    width: 100px;
+.btn {
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    width: 150px;
 }
 
-.input-group-prepend{
-    width: 100px;
+.button-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.input-group-prepend {
     text-align: center;
+    width: 100px;
 }
 .input-group-text{
     flex: 1;
@@ -19,20 +26,11 @@
 .inputContainer{
    width: 100%;
 }
-.location-input-body{
+.location-input-body {
+    border-radius: 10px;
+    color: white;
     padding: 5px 15px 5px 15px;
     text-align: center;
-    color: white;
-    border-radius: 10px;
-}
-
-.button-container{
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.btn{
-    width: 150px;
 }
 
 .reset-btn{
@@ -42,8 +40,8 @@
 .search-btn{
     background-image: linear-gradient(to right,#2556A3,#2393D4);
 }
-.btn{
-    font-size: 17px;
-    color: white;
-    font-weight: 500;
+
+.submitButton {
+    height: 25px;
+    width: 100px;
 }

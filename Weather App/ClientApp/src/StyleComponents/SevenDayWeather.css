@@ -1,40 +1,39 @@
-.main-container{
+.main-container {
     align-self: center;
-    margin: 10px 0px 10px 0px;
+    align-items: center;
     border-radius: 10px;
-    height: 125px;
-    min-height: 125px;
-    max-width: 750px;
-    min-width: 500px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+    background: none;
+    height: 125px;
+    justify-content: space-between;
+    margin: 10px 0px 10px 0px;
+    max-width: 750px;
+    min-height: 125px;
+    min-width: 500px;
     overflow: hidden;
     padding: 5px 5px 5px;
 }
 
-.forecast-day-token{
-    flex: 1;
-    min-width: 81px;
-    height: 100%;
-    margin: 0px 5px 0px;
-    border-radius: 10px;
-    border: 1px solid white;
-    color: rgb(20, 12, 43);
-    background-color: rgb(210, 225, 235);
-    font-weight: 600;
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    
-}
-
-.forecast-day-background{
+.forecast-day-background {
     height: 50px;
     width: 50px;
+}
+
+.forecast-day-token {
+    align-items: center;
+    border: 1px solid white;
+    background-color: rgb(210, 225, 235);
+    border-radius: 10px;
+    color: rgb(20, 12, 43);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: 600;
+    height: 100%;
+    min-width: 81px;
+    justify-content: flex-start;
 }
 
 .forecast-day-token:hover{
@@ -45,17 +44,18 @@
 .forecast-day {
     margin-bottom: 5px;
 }
-.forecast-day-temperature{
+
+.forecast-day-temperature {
+    margin: 5px 5px 0 0;
     font-weight: 600;
     font-size: 20px;
-    margin: 5px 5px 0 0;
 }
 .forecast-day-unit{
     font-weight: 600;
     font-size: 20px;
 }
 
-.glow{
+.glow {
     animation: glow 5s infinite;
 }
 

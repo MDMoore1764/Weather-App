@@ -90,6 +90,10 @@ const SevenDayWeather = (props) => {
         document.querySelector(`.day-${period}`).classList.add("glow");
     }
 
+    const style = {
+        border: !props.isDay ? "2px solid rgba(0, 0, 0, 1)" : "1px solid rgba(255, 255, 255, 0.8)"
+    }
+
     const RenderDays = () => {
         if (props.forecast === null || props.forecast === undefined) {
             return (
@@ -135,12 +139,10 @@ const SevenDayWeather = (props) => {
         return days;
     }
 
-    const style = {
-        // border: props.isDay ? "2px solid rgba(0, 0, 0, 0.05)" : "1px solid rgba(255, 255, 255, 0.8)"
-    }
+
 
     return (
-        <div className="main-container container d-flex" style={style}>
+        <div className="main-container container d-flex">
             {RenderDays()}
         </div>
     );

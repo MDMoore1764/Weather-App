@@ -10,42 +10,6 @@
   text-align: center;
 }
 
-.night-mode-box {
-  position: absolute;
-  left: 10px;
-
-
-}
-
-.night-mode-button {
-  height: 15px;
-  width: 30px;
-}
-
-.night-mode-text {
-  margin-left: 10px;
-}
-
-@media (max-width: 1050px) {
-  .night-mode-text {
-    display: none;
-  }
-
-}
-
-@media (max-width: 765px) {
-  .night-mode-button {
-    display: none;
-  }
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -60,4 +24,38 @@
 .App-link {
   color: #61dafb;
 }
+
+.night-mode-box {
+    position: absolute;
+    left: 10px;
+}
+
+.night-mode-button {
+    height: 15px;
+    width: 30px;
+}
+
+.night-mode-text {
+    margin-left: 10px;
+}
+
+@media (max-width: 1050px) {
+    .night-mode-text {
+        display: none;
+    }
+}
+
+@media (max-width: 765px) {
+    .night-mode-button {
+        display: none;
+    }
+}
+
+.signature {
+    align-self: flex-end;
+    color: rgb(196, 56, 0);
+    font-size: 12px;
+    margin: 5px 10px 5px 0px;
+}
+
 

@@ -3,6 +3,7 @@ export const GetForecastData = async (Lat, Long, setLoadFailed) => {
     return data;
 }
 
+
 export const GetCoordinateData = async (address, setLoadFailed) => {
 
     if (address.Street === "") {
@@ -13,7 +14,6 @@ export const GetCoordinateData = async (address, setLoadFailed) => {
     }
     else {
         const data = await fetch(`coordinate?street=${address.Street}&city=${address.City}&state=${address.State}&zip=${address.Zip}`, { mode: 'cors' }).then(res => res.json()).catch(() => setLoadFailed(true));
-
         return data;
     }
 }
