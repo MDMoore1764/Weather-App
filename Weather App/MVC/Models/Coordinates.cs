@@ -9,10 +9,9 @@ namespace Weather_App.MVC.Models
         private const int LatMax = 90;
         private const int LongMin = -180;
         private const int LongMax = 180;
-
         private double _latitude;
 
-        [JsonProperty("x")]
+        [JsonProperty("y")]
         public double Latitude
         {
             get
@@ -34,12 +33,11 @@ namespace Weather_App.MVC.Models
                 {
                     _latitude = value;
                 }
-
             }
         }
         private double _longitude;
 
-        [JsonProperty("y")]
+        [JsonProperty("x")]
         public double Longitude
         {
             get
