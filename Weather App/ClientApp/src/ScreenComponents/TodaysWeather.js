@@ -53,8 +53,6 @@ const TodaysWeather = (props) => {
             return null;
         }
         else {
-
-
             let windSpeedValue = currentForecast.Forecast.properties.periods[0].windSpeed.substring(0, 2).trim();
             //let windSpeedUnit = currentForecast.Forecast.properties.periods[0].windSpeed.substring(2).trim();
 
@@ -125,6 +123,7 @@ const TodaysWeather = (props) => {
             const GetShorterForecast = (fc) => {
                 //search for and remove unimportant words
                 fc = fc.replaceAll("Showers", "");
+                fc = fc.replaceAll("Slight", "");
 
                 return fc;
             }

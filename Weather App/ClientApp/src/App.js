@@ -1,4 +1,4 @@
-import { useReducer, useState, useEffect} from 'react';
+import { useReducer, useState, useEffect } from 'react';
 import './App.css';
 import LocationInput from './ScreenComponents/LocationInput';
 import TodaysWeather from './ScreenComponents/TodaysWeather';
@@ -70,6 +70,7 @@ const App = () => {
             <TodaysWeather forecast={forecastState} locationFound={locationFound} isDay={!nightMode} weatherPeriod={weatherPeriod} refresh={() => setCoordinates(coordinateState)} loadFailed={loadFailed} />
             <SevenDayWeather isDay={!nightMode} forecast={forecastState} setPeriod={setWeatherPeriod} />
             <LocationInput setCoordinates={setCoordinates} address={addressState} addressDispatch={addressDispatch} States={States} isDay={!nightMode} setLoadFailed={setLoadFailed} />
+            <p style={{ color: "rgb(196, 56, 0)", alignSelf: "flex-end", margin: "5px 10px 5px 0px", fontSize: "12px" }}>Designed and Developed by Michael Moore</p>
         </div>
     );
 }

@@ -45,7 +45,8 @@ const GetDayFromInt = (num) => {
 const TempUnits = ['F', 'C'];
 
 const GetIconFromShortCast = (shortCast) => {
-    //check for key words in the short forecast. If any match, return corresponding image
+    //check for key words in the short forecast. If any match, return corresponding image.
+    //Ordered by my personal interpretation of their priority.
     shortCast = shortCast.toLowerCase();
     if (shortCast.includes("blizzard")) {
         return Snow;
