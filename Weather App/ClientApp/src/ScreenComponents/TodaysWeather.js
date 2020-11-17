@@ -54,7 +54,7 @@ const TodaysWeather = (props) => {
         }
         else {
             console.log(currentForecast);
-            let windSpeedValue = currentForecast.Forecast.properties.periods[0].windSpeed.substring(0, 2).trim();
+            let windSpeedValue = currentForecast.Forecast.properties.periods[props.weatherPeriod].windSpeed.substring(0, 2).trim();
             //let windSpeedUnit = currentForecast.Forecast.properties.periods[0].windSpeed.substring(2).trim();
 
             let windDirection = { North: "North", NorthEast: "North-East", East: "East", SouthEast: "South-East", South: "South", SouthWest: "South-West", West: "West", NorthWest: "North-West" };

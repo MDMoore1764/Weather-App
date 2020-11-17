@@ -21,6 +21,8 @@ namespace Weather_App.MVC.Services
             string uriEntryPoint = $"https://api.weather.gov/points/{latitude},{longitude}";
             WeatherAPIResponse response = await _apiClient.GetJsonAsync<WeatherAPIResponse>(new Uri(uriEntryPoint));
             if (response == null) return null;
+            Console.WriteLine("Lat: " + latitude + "Long: " + longitude);
+            Console.WriteLine("URL: " + response.Properties.ForecastURI);
             response.Forecast = await _apiClient.GetJsonAsync<Forecast>(response.Properties.ForecastURI);
             return response;
         }
